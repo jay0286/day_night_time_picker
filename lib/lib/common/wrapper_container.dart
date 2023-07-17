@@ -1,5 +1,6 @@
 import 'package:day_night_time_picker/lib/state/state_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Just a simple [Container] with common styling
 class WrapperContainer extends StatelessWidget {
@@ -18,18 +19,18 @@ class WrapperContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final timeState = TimeModelBinding.of(context);
-    final height = timeState.widget.is24HrFormat
-        ? 200.0
-        : timeState.widget.wheelHeight ?? 240.0;
+     final timeState = TimeModelBinding.of(context);
+     // final height = timeState.widget.is24HrFormat
+     //     ? 120.h
+     //     : timeState.widget.wheelHeight ?? 240.h;
 
     return Container(
-      height: height,
+       // height: height,
       color: Theme.of(context).cardColor,
-      padding: const EdgeInsets.only(
-        left: 12.0,
-        top: 12.0,
-        right: 12.0,
+      padding:  EdgeInsets.all(0
+        // left: 4.h,
+        // top: 4.h,
+        // right: 4.h,
       ),
       child: child,
     );

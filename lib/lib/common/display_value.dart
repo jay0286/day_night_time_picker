@@ -2,6 +2,7 @@
 
 import 'package:day_night_time_picker/lib/state/state_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Render the [Hour] or [Minute] value for `Android` picker
 class DisplayValue extends StatelessWidget {
@@ -27,7 +28,7 @@ class DisplayValue extends StatelessWidget {
     final timeState = TimeModelBinding.of(context);
     final _commonTimeStyles =
         Theme.of(context).textTheme.displayMedium!.copyWith(
-              fontSize: 62,
+              fontSize: 62.sp,
               fontWeight: FontWeight.bold,
             );
 
@@ -38,15 +39,14 @@ class DisplayValue extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 3.0),
+        padding:  EdgeInsets.symmetric(horizontal: 3.h),
         child: InkWell(
           onTap: onTap,
           child: Text(
             value,
-            textScaleFactor: 0.85,
+            textScaleFactor: 1.0,
             style: _commonTimeStyles.copyWith(
-              color: isSelected ? color : unselectedColor,
-            ),
+                color: isSelected ? color : unselectedColor),
           ),
         ),
       ),

@@ -9,6 +9,7 @@ import 'package:day_night_time_picker/lib/daynight_banner.dart';
 import 'package:day_night_time_picker/lib/state/state_container.dart';
 import 'package:day_night_time_picker/lib/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Private class. [StatefulWidget] that renders the content of the picker.
 // ignore: must_be_immutable
@@ -77,7 +78,8 @@ class DayNightTimePickerAndroidState extends State<DayNightTimePickerAndroid> {
         child: FilterWrapper(
           child: WrapperDialog(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              //mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 DayNightBanner(
@@ -85,13 +87,16 @@ class DayNightTimePickerAndroidState extends State<DayNightTimePickerAndroid> {
                   sunset: widget.sunset,
                   duskSpanInMinutes: widget.duskSpanInMinutes,
                 ),
+                SizedBox(height:20.h),
                 WrapperContainer(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       const AmPm(),
-                      Expanded(
+                      Container(
+                      //color:Colors.blue,
+                          // child:Expanded(
                         child: Row(
                           textDirection: ltrMode,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -146,8 +151,11 @@ class DayNightTimePickerAndroidState extends State<DayNightTimePickerAndroid> {
                                 : []
                           ],
                         ),
-                      ),
-                      Slider(
+                      )
+,
+                      Container(
+                      //color:Colors.yellow,
+                          child:Slider(
                         onChangeEnd: (value) {
                           if (!timeState.widget.disableAutoFocusToNextInput) {
                             if (timeState.selected == SelectedInput.HOUR) {
@@ -171,7 +179,8 @@ class DayNightTimePickerAndroidState extends State<DayNightTimePickerAndroid> {
                         divisions: divisions,
                         activeColor: color,
                         inactiveColor: color.withAlpha(55),
-                      ),
+                      ))
+,
                       if (!hideButtons) const ActionButtons(),
                     ],
                   ),

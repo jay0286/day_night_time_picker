@@ -7,7 +7,7 @@ import 'package:day_night_time_picker/lib/utils.dart';
 import 'package:flutter/material.dart';
 
 import './sun_moon.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// [Widget] for rendering the box container of the sun and moon.
 class DayNightBanner extends StatelessWidget {
   final TimeOfDay sunrise;
@@ -60,9 +60,9 @@ class DayNightBanner extends StatelessWidget {
     final displace = mapRange(timeState.time.hour * 1.0, 0, 23);
 
     return AnimatedContainer(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
+      padding:  EdgeInsets.symmetric(horizontal: 32.h),
       duration: const Duration(seconds: 1),
-      height: 150,
+      height: 150.h,
       color: getColor(isDay, isDusk),
       child: LayoutBuilder(
         builder: (context, constraints) {
